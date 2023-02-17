@@ -87,8 +87,12 @@ fi
 if command_exists "git"; then
   alias a='git add '
   alias aa='git add --all'
+
+  alias good='git bisect good'
+  alias bad='git bisect bad'
+  alias skip='git bisect skip'
+
   #https://www.reddit.com/r/git/comments/avv34g/nicer_gitstatus/
-  alias st='__git_status'
   function __git_status {
     #e.b
     awk -vOFS='' '
@@ -128,7 +132,7 @@ if command_exists "git"; then
       d
       echo "=================================================="
     fi
-    st
+    __git_status
   }
 else
   echo "Warning: git not found"
