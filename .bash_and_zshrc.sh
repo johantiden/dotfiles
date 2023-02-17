@@ -120,7 +120,9 @@ if command_exists "git"; then
   }
 
   ## Git diff and status
-  function i {
+  alias d='git --no-pager diff'
+  alias i='_i'
+  function _i {
     local D=$(d)
     if [[ -n "${D}" ]]; then
       d
