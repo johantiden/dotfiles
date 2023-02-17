@@ -27,27 +27,15 @@ RC_FILE=~/.${_SHELL}rc
 alias src='source $RC_FILE'
 alias rc='vi $RC_FILE && src'
 
-
-if command_exists "apt"; then
-  alias agi='sudo apt install '
-else
-  echo "Warning: apt not found"
-fi
-
 if command_exists "fzf"; then
   alias fzf='fzf --no-mouse '
 else
   echo "Warning: fzf not found"
 fi
 
-
 # rq - parse yml and cvs, etc.
 # https://github.com/dflemstr/rq/blob/master/doc/installation.md#generic
 [ -f "$HOME/.cargo/bin/rq" ] && export PATH="$HOME/.cargo/bin":$PATH
-
-
-
-
 
 
 ##############################
@@ -70,6 +58,7 @@ function __curl_cleaner {
 ##############################
 if command_exists "apt"; then
   alias update='sudo apt update && sudo apt upgrade -y && sudo apt autoremove'
+  alias agi='sudo apt install '
 fi
 
 ##############################
@@ -187,6 +176,8 @@ fi
 ##############################
 if command_exists "convert"; then
   alias gif='convert -delay 50 -loop 0 -alpha remove -dispose Background -background white "${@}"'
+else
+  echo "Warning: 'convert' imagemagick not found"
 fi
 
 
@@ -196,12 +187,16 @@ fi
 ##############################
 if command_exists "python2"; then
   alias srvhttp='sudo python2 -m SimpleHTTPServer 80'
+else
+  echo "Warning: python2 not found"
 fi
 
 if command_exists "python3"; then
   alias srvftp='sudo python3 -m pyftpdlib -p 21'
   alias srvupload='sudo python3 ~/sync/bin/droopy -m "Send me a file!" 80'
   alias srvimages='sudo python3 ~/sync/bin/simplegallery.py -p 80'
+else
+  echo "Warning: python3 not found"
 fi
 
 
@@ -211,4 +206,6 @@ fi
 if command_exists "subl"; then
   alias subl='subl -n '
   alias sublw='subl -nw '
+else
+  echo "Warning: subl not found"
 fi
