@@ -64,19 +64,19 @@ fi
 ##############################
 #   PREFERRED TEXT EDITOR
 ##############################
-function __set_text_editor {
-  alias z='${1} '
-  # Editor for 'pass', etc.
-  export EDITOR="${1}"
-}
-
 if command_exists "nvim"; then
-  __set_text_editor "nvim"
+  alias z="nvim "
+  # Editor for 'pass', etc.
+  export EDITOR="nvim"
   alias vi='nvim'
 elif command_exists "vi"; then
-  __set_text_editor "vi"
+  alias z="vi "
+  # Editor for 'pass', etc.
+  export EDITOR="vi"
 elif command_exists "nano"; then
-  __set_text_editor "nano"
+  alias z="nano "
+  # Editor for 'pass', etc.
+  export EDITOR="nano"
 else
   echo "Warning: could not find nvim, vi or nano. WHERE ARE YOU!?"
 fi
