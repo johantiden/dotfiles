@@ -47,12 +47,6 @@ alias l='ll'
 
 alias df='df -h'
 
-alias curl='__curl_cleaner'
-function __curl_cleaner {
-  \curl --silent "${@}" | grep -v "doctype html"
-}
-
-
 ##############################
 #   APT
 ##############################
