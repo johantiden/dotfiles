@@ -141,9 +141,10 @@ if command_exists "git"; then
 
   ####### INSTALL MYSELF BY GIT CLONING THIS REPO #######
   # We assume that git is properly configured since it is already installed.
-  if [ ! -d "~/git/johantiden/dotfiles" ]; then
-    echo "johantiden/dotfiles not installed, installing..."
-    git clone git@github.com:johantiden/dotfiles ~/git/johantiden/dotfiles
+  PATH_DOTFILES="${HOME}/git/johantiden/dotfiles"
+  if [ ! -d "${PATH_DOTFILES}" ]; then
+    echo "${PATH_DOTFILES} not found, installing..."
+    git clone git@github.com:johantiden/dotfiles "${PATH_DOTFILES}"
   fi
 else
   echo "Warning: git not found"
