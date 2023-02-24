@@ -4,7 +4,7 @@ function source-if-exists() {
   if [[ -f $1 ]]; then
     source "$1"
   else
-    echo "Warning: $1 not found"
+    echo "$0 Warning: $1 not found"
   fi
 }
 
@@ -16,7 +16,7 @@ if [ -f ~/git/aliases-as-a-language/aliases-as-a-language.sh ]; then
   source "$HOME"/git/aliases-as-a-language/aliases-as-a-language.sh
   alias rca='vi $HOME/git/aliases-as-a-language/aliases-as-a-language.sh'
 else
-  echo "Warning: aliases-as-a-language not found"
+  echo "$0 Warning: aliases-as-a-language not found"
 fi
 
 ##############################
@@ -30,7 +30,7 @@ alias rc='vi $RC_FILE && src'
 if command_exists "fzf"; then
   alias fzf='fzf --no-mouse '
 else
-  echo "Warning: fzf not found"
+  echo "$0 Warning: fzf not found"
 fi
 
 # rq - parse yml and cvs, etc.
@@ -78,7 +78,7 @@ elif command_exists "nano"; then
   # Editor for 'pass', etc.
   export EDITOR="nano"
 else
-  echo "Warning: could not find nvim, vi or nano. WHERE ARE YOU!?"
+  echo "$0 Warning: could not find nvim, vi or nano. WHERE ARE YOU!?"
 fi
 
 ##############################
@@ -147,10 +147,8 @@ if command_exists "git"; then
     git clone git@github.com:johantiden/dotfiles "${PATH_DOTFILES}"
   fi
 else
-  echo "Warning: git not found"
+  echo "$0 Warning: git not found"
 fi
-
-
 
 ##############################
 #   MAVEN
@@ -159,7 +157,7 @@ if command_exists "mvn"; then
   alias mci='mvn clean install'
   alias pom='z pom.xml'
 else
-  echo "Warning: mvn not found"
+  echo "$0 Warning: mvn not found"
 fi
 
 
@@ -186,7 +184,7 @@ if command_exists "docker"; then
     sudo docker logs -f -n 1000 $(sudo_get_single_docker_container)
   }
 else
-  echo "Warning: docker not found"
+  echo "$0 Warning: docker not found"
 fi
 
 ##############################
@@ -195,7 +193,7 @@ fi
 if command_exists "convert"; then
   alias gif='convert -delay 50 -loop 0 -alpha remove -dispose Background -background white "${@}"'
 else
-  echo "Warning: 'convert' imagemagick not found"
+  echo "$0 Warning: 'convert' imagemagick not found"
 fi
 
 
@@ -206,7 +204,7 @@ fi
 if command_exists "python2"; then
   alias srvhttp='sudo python2 -m SimpleHTTPServer 80'
 else
-  echo "Warning: python2 not found"
+  echo "$0 Warning: python2 not found"
 fi
 
 if command_exists "python3"; then
@@ -214,7 +212,7 @@ if command_exists "python3"; then
   alias srvupload='sudo python3 ~/sync/bin/droopy -m "Send me a file!" 80'
   alias srvimages='sudo python3 ~/sync/bin/simplegallery.py -p 80'
 else
-  echo "Warning: python3 not found"
+  echo "$0 Warning: python3 not found"
 fi
 
 
@@ -225,5 +223,5 @@ if command_exists "subl"; then
   alias subl='subl -n '
   alias sublw='subl -nw '
 else
-  echo "Warning: subl not found"
+  echo "$0 Warning: subl not found"
 fi
