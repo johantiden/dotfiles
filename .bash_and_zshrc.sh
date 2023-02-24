@@ -92,6 +92,8 @@ if command_exists "git"; then
   alias bad='git bisect bad'
   alias skip='git bisect skip'
 
+  alias merge='git merge'
+
   #https://www.reddit.com/r/git/comments/avv34g/nicer_gitstatus/
   function __git_status {
     #e.b
